@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <progressBar :quotesNumber="quotes.length"></progressBar>
+    <newQuote :quotes="quotes"></newQuote>
+    <allQuotes :quotes="quotes"></allQuotes>
+    <div class="alert alert-primary mt-4 text-center ml-5 mr-5">
+      Info: Click on a Quote to delete it
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/Header'
+  import NewQuote from './components/NewQuote'
+  import AllQuotes from './components/AllQuotes'
+  export default {
+    data() {
+      return {
+        quotes: []
+      };
+    },
+    components: {
+      progressBar: Header,
+      newQuote: NewQuote,
+      allQuotes: AllQuotes
+    }
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
